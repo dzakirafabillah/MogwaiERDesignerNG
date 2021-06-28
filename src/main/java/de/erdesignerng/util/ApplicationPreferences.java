@@ -566,6 +566,10 @@ public class ApplicationPreferences {
 		return new URL("http://mogwai.sourceforge.net/userdoc/MogwaiERDesignerNG.pdf").toURI();
 	}
 
+	public URI getUserManualFile() throws Exception {
+		return new URL("https://github.com/mirkosertic/MogwaiERDesignerNG/blob/master/userdoc/MogwaiERDesignerNG.pdf").toURI();
+	}
+
 	public String getAutomaticRelationAttributePattern() {
 		return automaticRelationAttributePattern;
 	}

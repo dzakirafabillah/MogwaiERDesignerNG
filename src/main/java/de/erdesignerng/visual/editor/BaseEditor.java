@@ -39,6 +39,8 @@ public abstract class BaseEditor extends DefaultDialog implements DialogConstant
 
     protected final DefaultAction okAction = new DefaultAction(e -> commandOk(), this, ERDesignerBundle.OK);
 
+    protected final DefaultAction okAction2 = new DefaultAction(e -> commandOk(), this, "OK");
+
     protected final DefaultAction cancelAction = new DefaultAction(e -> commandCancel(), this, ERDesignerBundle.CANCEL);
 
     /**

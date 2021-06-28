@@ -176,6 +176,18 @@
             <Text lang="de">Die Verbindung scheint zu funktionieren</Text>
             <Text lang="en">The connection seems to be ok</Text>
         </Entry>
+        <Entry id="HELPMENU">
+            <Text lang="de">Hilfe</Text>
+            <Text lang="en">Help</Text>
+        </Entry>
+        <Entry id="USERMANUAL">
+            <Text lang="de">Benutzerhandbuch</Text>
+            <Text lang="en">User Manual</Text>
+        </Entry>
+        <Entry id="ABOUT">
+            <Text lang="de">Über</Text>
+            <Text lang="en">About</Text>
+        </Entry>
         <Entry id="NEW">
             <Text lang="de">Neu</Text>
             <Text lang="en">New</Text>

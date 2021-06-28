@@ -419,6 +419,9 @@ public final class ERDesignerComponent implements ResourceHelperProvider {
 
         DefaultAction theClasspathAction = new DefaultAction(
                 new ClasspathCommand(), this, ERDesignerBundle.CLASSPATH);
+        
+        DefaultAction theAboutAction = new DefaultAction(
+            new AboutCommand(), this, ERDesignerBundle.ABOUT);
 
         DefaultAction theDBConnectionAction = new DefaultAction(
                 new DBConnectionCommand(), this,
@@ -472,6 +475,9 @@ public final class ERDesignerComponent implements ResourceHelperProvider {
 
         DefaultAction theHelpAction = new DefaultAction(
                 aEvent -> commandShowHelp(), this, ERDesignerBundle.HELP);
+
+        DefaultAction theUserManualAction = new DefaultAction(
+                aEvent -> commandShowUserManual(), this, ERDesignerBundle.USERMANUAL);
 
         exportOpenXavaAction = new DefaultAction(
                 new OpenXavaExportExportCommand(), this,
@@ -538,6 +544,19 @@ public final class ERDesignerComponent implements ResourceHelperProvider {
             theFileMenu.addSeparator();
             theFileMenu.add(new DefaultMenuItem(theExitAction));
         }
+        
+        ERDesignerToolbarEntry theHelpMenu = new ERDesignerToolbarEntry(
+                ERDesignerBundle.HELPMENU);
+        
+        if (worldConnector.supportsClasspathEditor()) {
+            theHelpMenu.add(new DefaultMenuItem(theAboutAction));
+        }
+        
+        if (worldConnector.supportsHelp()) {
+            theHelpMenu.add(new DefaultMenuItem(theUserManualAction));
+        }
+
+        
 
         ERDesignerToolbarEntry theDBMenu = new ERDesignerToolbarEntry(
                 ERDesignerBundle.DATABASE);
@@ -739,6 +758,7 @@ public final class ERDesignerComponent implements ResourceHelperProvider {
         theToolBar.add(theFileMenu);
         theToolBar.add(theDBMenu);
         theToolBar.add(theViewMenu);
+        theToolBar.add(theHelpMenu);
         theToolBar.addSeparator();
 
         theToolBar.add(theNewAction);
@@ -1002,6 +1022,16 @@ public final class ERDesignerComponent implements ResourceHelperProvider {
         try {
             URI theFile = ApplicationPreferences.getInstance()
                     .getOnlineHelpPDFFile();
+            Desktop.getDesktop().browse(theFile);
+        } catch (Exception e) {
+            worldConnector.notifyAboutException(e);
+        }
+    }
+
+    protected void commandShowUserManual() {
+        try {
+            URI theFile = ApplicationPreferences.getInstance()
+                    .getUserManualFile();
             Desktop.getDesktop().browse(theFile);
         } catch (Exception e) {
             worldConnector.notifyAboutException(e);
