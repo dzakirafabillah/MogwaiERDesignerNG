@@ -62,8 +62,6 @@ public class About extends BaseEditor {
 
 	private void initialize() {
 		setSize(300,600);
-		view.getOkButton().setAction(okAction);
-		view.getTestButton().setAction(okAction);
 
 		setContentPane(view);
 		setResizable(false);

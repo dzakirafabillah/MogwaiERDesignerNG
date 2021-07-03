@@ -29,13 +29,9 @@ public class AboutCommand extends UICommand {
     public void execute() {
 
         About dialog= new About(getDetailComponent());
-        //ClasspathEditor theEditor = new ClasspathEditor(getDetailComponent());
+        
         if (dialog.showModal() == DialogConstants.MODAL_RESULT_OK) {
-            // try {
-            //     theEditor.applyValues();
-            // } catch (Exception e) {
-            //     getWorldConnector().notifyAboutException(e);
-            // }
+           
         }
     }
 }
